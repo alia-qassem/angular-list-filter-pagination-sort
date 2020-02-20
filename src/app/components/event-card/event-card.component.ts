@@ -15,7 +15,7 @@ export class EventCardComponent {
   constructor(private spinnerService: Ng4LoadingSpinnerService,
     private eventService: EventService) { }
 
-  private updateEvent(status) {
+  private updateEvent(status: string) {
     this.spinnerService.show();
     this.eventService.updateEvent(this.event.uuid, status)
       .subscribe(
@@ -25,14 +25,7 @@ export class EventCardComponent {
         },
         error => {
           console.log(error);
+          this.spinnerService.hide();
         });
-  }
-
-  private approve() {
-    this.updateEvent('APPROVED');
-  }
-
-  private decline() {
-    this.updateEvent('DECLINED');
   }
 }

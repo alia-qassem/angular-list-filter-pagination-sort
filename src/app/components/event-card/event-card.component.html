@@ -24,22 +24,22 @@
 
     <div class="row mt-2 mb-2">
       <div class="col-md-6" *ngIf="event?.status === 'PENDING'">
-        <button type="button" class="btn btn-block btn-approve" (click)="approve()">
+        <button type="button" class="btn btn-block btn-approve" (click)="updateEvent('APPROVED')">
           APPROVE
         </button>
       </div>
       <div class="col-md-6" *ngIf="event?.status === 'PENDING'">
-        <button type="button" class="btn btn-block btn-decline" (click)="decline()">
+        <button type="button" class="btn btn-block btn-decline" (click)="updateEvent('DECLINED')">
           DECLINE
         </button>
       </div>
 
       <div class="col-md-12" *ngIf="event?.status === 'APPROVED'">
-        <button type="button" disabled class="btn btn-block btn-approve"> APPROVED </button>
+        <div class="status status-approved"> APPROVED </div>
       </div>
 
       <div class="col-md-12" *ngIf="event?.status === 'DECLINED'">
-        <button type="button" disabled class="btn btn-block btn-decline"> DECLINED </button>
+        <div class="status status-declined"> DECLINED </div>
       </div>
     </div>
   </div>

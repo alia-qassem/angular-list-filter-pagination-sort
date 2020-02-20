@@ -56,42 +56,28 @@
   color: #cd3c14;
 }
 
-.btn:disabled {
-  border-right: none;
-  border-bottom: none;
-  border-left: none;
+.status{
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  text-align: center;
+  user-select: none;
+  padding: calc(0.5rem - 1px) 1.125rem calc(0.5rem + 1px);
+  font-size: 1rem;
+  line-height: 1.25;
+  border-radius: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, outline-offset 0.15s ease-in-out;
+  outline-offset: 0.25rem;
 }
 
-@media (min-width: 769px) and (max-width: 1220px) {
-  .single-box-content {
-    padding: 15px 15px 0px;
-  }
-  .btn {
-    font-size: 12px;
-  }
+.status-approved {
+  border-top: 1px solid #32c832;
+  color: #32c832;
 }
 
-@media (min-width: 767px) and (max-width: 1220px) and (orientation:portrait) {
-  .btn {
-    font-size: 10px;
-  }
-}
-
-@media (max-width: 767px) {
-  .btn {
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 479.98px) {
-  .single-box-content {
-    padding: 20px 10px 0px;
-  }
-  .btn {
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
+.status-declined {
+  border-top: 1px solid #cd3c14;
+  color: #cd3c14;
 }
 
 .title {
