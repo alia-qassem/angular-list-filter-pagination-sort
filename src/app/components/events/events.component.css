@@ -1,0 +1,48 @@
+.filter-selector {
+  border-bottom: 1px solid #8500f1;
+  color: #8500f1;
+}
+
+.filter-option {
+  border-right: 1px solid #8500f1;
+}
+
+.sort-selector {
+  border: none;
+  padding: 0;
+  color: #000;
+}
+
+.pagination-selector {
+  border-top: 1px solid #8500f1;
+  color: #8500f1;
+}
+
+.pagination-option {
+  border-right: 1px solid #8500f1;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.btn-pagination {
+  border: none;
+  color: #8500f1;
+}
+
+.btn-pagination:disabled {
+  color: #999;
+}
+
+.error {
+  color: #cd3c14;
+}
+
+.error span {
+  font-size: 1rem;
+  float: left;
+  margin-top: 8px;
+  margin-left: 5px;
+  width: calc(100% - 45px);
+}

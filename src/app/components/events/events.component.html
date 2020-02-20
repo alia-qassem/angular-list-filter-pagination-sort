@@ -1,0 +1,69 @@
+<div *ngIf="!loadingError && events?.length > 0">
+  <div class="filter-selector pt-1 pb-1 mt-1 mb-3">
+    <div class="row">
+      <div class="col-md-8">
+        <span class='filter-option pr-2 clickable' (click)="filter('');">
+          ALL
+        </span>
+        <span class='filter-option pr-2 pl-2 clickable' (click)="filter('PENDING');">
+          PENDING
+        </span>
+        <span class='filter-option pr-2 pl-2 clickable' (click)="filter('APPROVED');">
+          APPROVED
+        </span>
+        <span class='pr-2 pl-2 clickable' (click)="filter('DECLINED');">
+          DECLINED
+        </span>
+      </div>
+      <div class="col-md-4 text-right">
+        <span class='filter-option pr-2 pl-2'>
+          Order By
+        </span>
+        <select class="sort-selector ml-2 clickable" [(ngModel)]="orderBy" (change)="order()">
+          <option value="created_at" selected>Creation Date</option>
+          <option value="amount">Amount</option>
+          <option value="currency">Currency</option>
+          <!-- <option value="employee.last_name">Employee Name</option> -->
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class='col-md-4' *ngFor='let event of events'>
+      <app-event-card [event]="event"></app-event-card>
+    </div>
+  </div>
+
+  <div class="pagination-selector pt-1 pb-1 mt-1 mb-3">
+    <div class="row">
+      <div class="col-md-6 pagination-option text-right">
+        <button type="button" class="btn btn-block btn-pagination" [disabled]="pageNumber == 1" (click)="goPrevious()">
+          PREVIOUS
+        </button>
+      </div>
+      <div class='col-md-6'>
+        <button type="button" class="btn btn-block btn-pagination" [disabled]="pageNumber == totalPages"
+          (click)="goNext()">
+          NEXT
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="!loadingError && events?.length == 0">
+  <div class="col">
+    <div class="error">
+      <span>There are no events to display</span>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="loadingError">
+  <div class="col">
+    <div class="error">
+      <span>Please try again later</span>
+    </div>
+  </div>
+</div>
