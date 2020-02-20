@@ -2,21 +2,25 @@
   <div class="filter-selector pt-1 pb-1 mt-1 mb-3">
     <div class="row">
       <div class="col-md-8">
-        <span class='filter-option pr-2 clickable' (click)="filter('');">
+        <span class='separator pr-2 clickable' [ngClass]="{'filter-selected': status === ''}" (click)="filter('');">
           ALL
         </span>
-        <span class='filter-option pr-2 pl-2 clickable' (click)="filter('PENDING');">
+        <span class='separator pr-2 pl-2 clickable' [ngClass]="{'filter-selected': status === 'PENDING'}"
+          (click)="filter('PENDING');">
           PENDING
         </span>
-        <span class='filter-option pr-2 pl-2 clickable' (click)="filter('APPROVED');">
+        <span class='separator pr-2 pl-2 clickable' [ngClass]="{'filter-selected': status === 'APPROVED'}"
+          (click)="filter('APPROVED');">
           APPROVED
         </span>
-        <span class='pr-2 pl-2 clickable' (click)="filter('DECLINED');">
+        <span class='pr-2 pl-2 clickable' [ngClass]="{'filter-selected': status === 'DECLINED'}"
+          (click)="filter('DECLINED');">
           DECLINED
         </span>
       </div>
+
       <div class="col-md-4 text-right">
-        <span class='filter-option pr-2 pl-2'>
+        <span class='separator pr-2 pl-2'>
           Order By
         </span>
         <select class="sort-selector ml-2 clickable" [(ngModel)]="orderBy" (change)="order()">
@@ -37,14 +41,13 @@
 
   <div class="pagination-selector pt-1 pb-1 mt-1 mb-3">
     <div class="row">
-      <div class="col-md-6 pagination-option text-right">
+      <div class="col-md-6 separator text-right">
         <button type="button" class="btn btn-block btn-pagination" [disabled]="pageNumber == 1" (click)="goPrevious()">
           PREVIOUS
         </button>
       </div>
       <div class='col-md-6'>
-        <button type="button" class="btn btn-block btn-pagination" [disabled]="pageNumber == totalPages"
-          (click)="goNext()">
+        <button type="button" class="btn btn-block btn-pagination" (click)="goNext()">
           NEXT
         </button>
       </div>

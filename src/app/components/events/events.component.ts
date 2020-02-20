@@ -8,7 +8,6 @@ import { EventService } from '../../services/event.service';
   styleUrls: ["./events.component.css"]
 })
 export class EventComponent implements OnInit {
-  private totalPages: number;
   private events: Event[];
   private errorMessage: string;
   private loadingError: boolean;
@@ -30,21 +29,14 @@ export class EventComponent implements OnInit {
     this.orderBy = 'created_at';
     this.asc = false;
     this.status = '';
-    this.totalPages = Math.ceil(16 / this.pageSize);
     this.pageNumber = 1;
     this.getEvents();
   }
 
   private getEvents() {
     this.startIndex = (this.pageNumber - 1) * this.pageSize;
-    console.log(`get events: \n
-    sorted by: ${this.orderBy} ${this.asc ? 'ASC' : 'DESC'} \n
-    with status: ${this.status} \n
-    starting from: ${this.startIndex} \n
-    with pageSize ${this.pageSize}`);
 
     this.spinnerService.show();
-
     this.eventService.getEvents(this.status, this.orderBy, this.asc ? 'ASC' : 'DESC', this.startIndex, this.pageSize)
       .subscribe(
         ({ data }) => {

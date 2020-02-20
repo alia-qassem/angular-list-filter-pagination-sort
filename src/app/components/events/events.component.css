@@ -3,7 +3,11 @@
   color: #8500f1;
 }
 
-.filter-option {
+.filter-selected{
+  font-weight: bold;
+}
+
+.separator {
   border-right: 1px solid #8500f1;
 }
 
@@ -16,10 +20,6 @@
 .pagination-selector {
   border-top: 1px solid #8500f1;
   color: #8500f1;
-}
-
-.pagination-option {
-  border-right: 1px solid #8500f1;
 }
 
 .clickable {
