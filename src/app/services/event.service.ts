@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { Apollo, QueryRef } from 'apollo-angular';
+import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 const EVENTS_QUERY = gql`
@@ -44,13 +43,10 @@ const EVENT_MUTATION = gql`
 })
 export class EventService {
 
-  private query: QueryRef<any>;
-
-  constructor(private apollo: Apollo) {
-  }
+  constructor(private apollo: Apollo) { }
 
   getEvents(status: string, orderBy: string, orderDir: string, startIndex: number, pageSize: number) {
-    this.query = this.apollo.watchQuery({
+    return this.apollo.watchQuery({
       query: EVENTS_QUERY,
       variables: {
         status: status,
@@ -59,9 +55,7 @@ export class EventService {
         startIndex: startIndex,
         pageSize: pageSize
       }
-    });
-
-    return this.query.valueChanges;
+    }).valueChanges;
   }
 
   updateEvent(uuid: string, status: string) {
