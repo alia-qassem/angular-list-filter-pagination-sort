@@ -3,7 +3,7 @@
   color: #8500f1;
 }
 
-.filter-selected{
+.filter-selected {
   font-weight: bold;
 }
 
@@ -36,13 +36,12 @@
 }
 
 .error {
-  color: #cd3c14;
+  color: #000;
 }
 
 .error span {
   font-size: 1rem;
   float: left;
   margin-top: 8px;
-  margin-left: 5px;
-  width: calc(100% - 45px);
+  margin-bottom: 17px;
 }
