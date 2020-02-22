@@ -40,7 +40,9 @@ export class EventComponent implements OnInit {
     this.eventService.getEvents(this.status, this.orderBy, this.asc ? 'ASC' : 'DESC', this.startIndex, this.pageSize)
       .subscribe(
         ({ data }) => {
-          this.events = data.events;
+          if (data && data.events) {
+            this.events = data.events;
+          }        
           this.spinnerService.hide();
         },
         error => {
