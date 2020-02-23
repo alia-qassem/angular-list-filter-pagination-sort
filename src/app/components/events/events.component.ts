@@ -42,10 +42,11 @@ export class EventComponent implements OnInit {
         ({ data }) => {
           if (data && data['events']) {
             this.events = data['events'];
-          }        
+          }
           this.spinnerService.hide();
         },
         error => {
+          console.log(error);
           this.loadingError = true;
           this.spinnerService.hide();
         });
@@ -74,5 +75,9 @@ export class EventComponent implements OnInit {
   private goNext() {
     this.pageNumber++;
     this.getEvents();
+  }
+
+  private reload() {
+    location.reload();
   }
 }
