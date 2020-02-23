@@ -20,7 +20,9 @@ export class EventCardComponent {
     this.eventService.updateEvent(this.event.uuid, status)
       .subscribe(
         ({ data }) => {
-          this.event = data['updateEvent'];
+          if (data && data['updateEvent']) {
+            this.event = data['updateEvent'];
+          }
           this.spinnerService.hide();
         },
         error => {
