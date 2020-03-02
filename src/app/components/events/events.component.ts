@@ -54,6 +54,7 @@ export class EventComponent implements OnInit {
 
   private filter(status) {
     this.status = status;
+    this.pageNumber = 1;
     this.getEvents();
   }
 
@@ -64,6 +65,7 @@ export class EventComponent implements OnInit {
       case 'currency': this.asc = true; break;
       case 'employee.last_name': this.asc = true; break;
     }
+    this.pageNumber = 1;
     this.getEvents();
   }
 
